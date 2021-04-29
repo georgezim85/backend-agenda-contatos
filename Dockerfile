@@ -1,6 +1,5 @@
 FROM docker.io/python:3.10.0a7-alpine3.13
 
-ENV DJANGO_VERSION=3.2
 ENV APP_DIR=/usr/src/app
 
 RUN apk update && apk add \
@@ -32,14 +31,12 @@ ENV PATH=$PATH:/home/user/.local/bin
 
 RUN python3 -m venv env/
 
-RUN pip install --user django==${DJANGO_VERSION}
+RUN pip install --no-cache-dir -r requirements.txt
 
 RUN echo Python Version: $(python --version)
 
 RUN echo Python-admin Version: $(django-admin --version)
 
 RUN echo Django Version: $(python -m django --version)
-
-RUN pip install --no-cache-dir -r requirements.txt
 
 CMD [ "./runserver.sh"]
