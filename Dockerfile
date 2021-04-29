@@ -3,7 +3,16 @@ FROM docker.io/python:3.10.0a7-alpine3.13
 ENV DJANGO_VERSION=3.2
 ENV APP_DIR=/usr/src/app
 
-RUN apk add git gcc g++ python3-dev musl-dev
+RUN apk update && apk add \
+    git \
+    gcc \
+    g++ \
+    python3-dev \
+    musl-dev \
+    mariadb-connector-c-dev \
+    libffi-dev \
+    openssl-dev \
+    cargo
 
 RUN adduser user -D
 
@@ -14,6 +23,8 @@ COPY ./app ./
 RUN install -g user -o user -d ${APP_DIR}
 
 RUN find ${APP_DIR} -type d -exec chmod g+s {} \;
+
+RUN pip install --upgrade pip
 
 USER user
 
