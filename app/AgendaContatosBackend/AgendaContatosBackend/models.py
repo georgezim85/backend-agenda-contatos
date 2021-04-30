@@ -1,7 +1,8 @@
 from django.db import models
 
+
 class Contact(models.Model):
-    name = models.CharField(max_length = 50)
-    gender = models.CharField(max_length = 50)
-    phone = models.CharField(max_length = 50)
-    email = models.CharField(max_length = 50)
+    name = models.CharField(max_length=200)
+    gender = models.CharField(max_length=6)
+    phone = models.CharField(max_length=20)
+    email = models.EmailField()

@@ -1,9 +1,9 @@
 """AgendaContatosBackend URL Configuration"""
-from django.urls import include, path
-from AgendaContatosBackend import views
+from . import views
 from django.contrib import admin
-from rest_framework import routers
+from django.urls import include, path
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
+from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)

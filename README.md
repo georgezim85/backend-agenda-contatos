@@ -47,3 +47,11 @@ If you want to access the **container shell** as the app owner named `user` (def
 docker-compose exec backend sh
 ```
 **Obs: The above instructions will only work if you have already started the docker-compose thru `docker-compose up` or by the script `./run.sh`.**
+
+URLs
+----
+After running `docker-compose up`:
+- **Django administration**: http://localhost:8000/admin/
+- **OpenApi schema download**: http://localhost:8000/api/schema/
+- **OpenAPI/Swagger-generated API Reference Documentation**: http://localhost:8000/api/schema/redoc/
+- **Swagger-ui**: http://localhost:8000/api/schema/swagger-ui/
