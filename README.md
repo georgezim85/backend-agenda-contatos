@@ -51,6 +51,7 @@ docker-compose exec backend sh
 URLs
 ----
 After running `docker-compose up`:
+- **Adminer**: http://localhost:8888
 - **Django administration**: http://localhost:8000/admin/
 - **OpenApi schema download**: http://localhost:8000/api/schema/
 - **OpenAPI/Swagger-generated API Reference Documentation**: http://localhost:8000/api/schema/redoc/
