@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User, Group
-from AgendaContatosBackend.models.Contact import Contact
+from AgendaContatosBackend.models import Contact
 from rest_framework import viewsets
 from rest_framework import permissions
 from AgendaContatosBackend.modules.serializers import UserSerializer, GroupSerializer, ContactSerializer
@@ -13,7 +13,6 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
 
-
 class GroupViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows groups to be viewed or edited.
@@ -26,5 +25,5 @@ class ContactViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows contacts to be viewed or edited.
     """
-    queryset = Group.objects.all()
+    queryset = Contact.objects.all()
     serializer_class = ContactSerializer
