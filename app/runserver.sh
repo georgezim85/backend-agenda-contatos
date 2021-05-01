@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 wget -qO- https://raw.githubusercontent.com/eficode/wait-for/v2.1.0/wait-for | sh -s -- $DB_HOST:3306 -- echo database daemon ready
 
@@ -16,8 +17,9 @@ fi
 if [ $ENV = 'prod' ]
   then
     echo Starting prod...
+    pip install gunicorn
     pip install AgendaContatosBackend/
-    django-admin runserver 0.0.0.0:80 --settings=AgendaContatosBackend.settings
+    gunicorn -b 0.0.0.0:80 AgendaContatosBackend.wsgi
 fi
 
 echo Running with $ENV environment

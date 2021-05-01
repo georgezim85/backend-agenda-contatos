@@ -13,25 +13,25 @@ RUN apk update && apk add \
     openssl-dev \
     cargo
 
-RUN adduser user -D
+# RUN adduser user -D
 
 WORKDIR ${APP_DIR}
 
 COPY ./app ./
 
-RUN install -g user -o user -d ${APP_DIR}
+# RUN install -g user -o user -d ${APP_DIR}
 
-RUN find ${APP_DIR} -type d -exec chmod g+s {} \;
+# RUN find ${APP_DIR} -type d -exec chmod g+s {} \;
 
 RUN pip install --upgrade pip
 
-USER user
+# USER user
 
-ENV PATH=$PATH:/home/user/.local/bin
+# ENV PATH=$PATH:/home/user/.local/bin
 
-RUN python3 -m venv env/
+# RUN python3 -m venv env/
 
-RUN source env/bin/activate
+# RUN source env/bin/activate
 
 RUN pip install --no-cache-dir -r requirements.txt
 
