@@ -52,7 +52,7 @@ URLs
 ----
 After running `docker-compose up`:
 - **Adminer**: http://localhost:8888
-- **Django administration**: http://localhost:8000/admin/
-- **OpenApi schema download**: http://localhost:8000/api/schema/
-- **OpenAPI/Swagger-generated API Reference Documentation**: http://localhost:8000/api/schema/redoc/
-- **Swagger-ui**: http://localhost:8000/api/schema/swagger-ui/
+- **Django administration**: http://localhost/admin/
+- **OpenApi schema download**: http://localhost/api/schema/
+- **OpenAPI/Swagger-generated API Reference Documentation**: http://localhost/api/schema/redoc/
+- **Swagger-ui**: http://localhost/api/schema/swagger-ui/

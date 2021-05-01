@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -93,14 +94,14 @@ WSGI_APPLICATION = 'AgendaContatosBackend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dev_agenda_contatos',
-        'USER': 'root',
-        'PASSWORD': 'password',
-        'HOST': 'db',
-        'PORT': '3306',
-        'CHARSET': 'utf8',
+        'NAME': os.environ['DB_NAME'],
+        'USER': os.environ['DB_USER'],
+        'PASSWORD': os.environ['DB_PASSWORD'],
+        'HOST': os.environ['DB_HOST'],
+        'PORT': os.environ['DB_PORT'],
+        'CHARSET': os.environ['DB_CHARSET'],
         'TEST': {
-            'NAME': 'test_agenda_contatos',
+            'NAME': os.environ['DB_TEST_NAME'],
         },
     }
 }
@@ -254,7 +255,7 @@ SPECTACULAR_SETTINGS = {
     'VERSION': '0.0.1',
     # # Optional list of servers.
     # # Each entry MUST contain "url", MAY contain "description", "variables"
-    'SERVERS': [{"url": 'http://localhost:8000'}],
+    'SERVERS': [{"url": 'http://localhost'}],
     # # Tags defined in the global scope
     # 'TAGS': [],
     # # Optional: MUST contain 'url', may contain "description"
