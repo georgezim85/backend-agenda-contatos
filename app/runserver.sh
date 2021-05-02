@@ -5,6 +5,21 @@ wget -qO- https://raw.githubusercontent.com/eficode/wait-for/v2.1.0/wait-for | s
 
 python AgendaContatosBackend/manage.py migrate
 
+# Create the superuser
+cat <<EOF | python AgendaContatosBackend/manage.py shell
+from django.contrib.auth import get_user_model
+from rest_framework.authtoken.models import Token
+
+User = get_user_model()
+
+if User.objects.filter(username='admin').exists() != True:
+    superuser = User.objects.create_superuser('admin', 'admin@example.com', 'changepass')
+#    superuser = get_user_model().objects.first()
+    token = Token.objects.create(user=superuser)
+    print(token.key)
+
+EOF
+
 # Development
 if [ $ENV = "dev" ]
   then
