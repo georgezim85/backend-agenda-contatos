@@ -271,7 +271,7 @@ SPECTACULAR_SETTINGS = {
     'VERSION': '0.0.1',
     # # Optional list of servers.
     # # Each entry MUST contain "url", MAY contain "description", "variables"
-    'SERVERS': [{"url": 'http://localhost'}],
+    'SERVERS': [{"url": 'http://localhost'}, {"url": "https://api-kubernetes-creathus.azurewebsites.net"}],
     # # Tags defined in the global scope
     # 'TAGS': [],
     # # Optional: MUST contain 'url', may contain "description"
